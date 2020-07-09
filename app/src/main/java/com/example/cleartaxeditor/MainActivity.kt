@@ -19,7 +19,9 @@ class MainActivity : AppCompatActivity() {
         binding.viewModel = viewModel
         binding.editText.setOnFocusChangeListener { _, hasFocus ->
             Log.i("Focus", hasFocus.toString())
-            if (!hasFocus) {
+            if (hasFocus) {
+                viewModel.focusGained(binding.editText.text.toString())
+            } else {
                 viewModel.focusLost(binding.editText.text.toString())
             }
         }
@@ -27,6 +29,7 @@ class MainActivity : AppCompatActivity() {
             val prev = viewModel.undo()
             Log.i("Undo", prev)
             binding.editText.setText(prev)
+            binding.editText.clearFocus()
         }
         binding.clearFocus.setOnClickListener {
             binding.editText.clearFocus()
