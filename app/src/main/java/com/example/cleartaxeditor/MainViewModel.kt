@@ -22,6 +22,18 @@ class MainViewModel : ViewModel() {
 
     fun focusLost(value: String) {
         _undoHistory.push(value)
+        _updateStates(value)
+    }
+
+    fun undo(): String {
+        val prev = _undoHistory.pop()
+
+        _updateStates(prev)
+        return prev
+    }
+
+
+    private fun _updateStates(value: String) {
         _wordCount.value = value.trim().split("\\s+".toRegex()).size
         _undoEnabled.value = _undoHistory.isNotEmpty()
     }
