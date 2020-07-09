@@ -62,7 +62,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="@{viewModel.undoEnabled}"
                 android:padding="8dp"
-                android:src="@{viewModel.undoEnabled ? @drawable/ic_undo_black_24dp : @drawable/ic_undo_gray_24dp}"
+                android:src="@{viewModel.undoEnabled ? @drawable/ic_undo_prim_24dp : @drawable/ic_undo_gray_24dp}"
                 tools:ignore="ContentDescription" />
 
 
