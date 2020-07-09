@@ -20,25 +20,28 @@ class MainViewModel : ViewModel() {
     //Keep track of undo stack history
     private val _undoHistory: Stack<String> = Stack()
 
+    //Add to stack history and update state
     fun focusGained(value: String) {
         if (_undoHistory.empty() || value != _undoHistory.peek()) {
             _undoHistory.push(value)
         }
-        _updateStates(value)
+        updateStates(value)
     }
 
+    //Update states
     fun focusLost(value: String) {
-        _updateStates(value)
+        updateStates(value)
     }
 
+    //Perform Undo
     fun undo(): String {
         val prev = _undoHistory.pop()
-        _updateStates(prev)
+        updateStates(prev)
         return prev
     }
 
-
-    private fun _updateStates(value: String) {
+    //Update undo and word count
+    private fun updateStates(value: String) {
         if (value.trim().isBlank()) {
             _wordCount.value = 0
         } else {
