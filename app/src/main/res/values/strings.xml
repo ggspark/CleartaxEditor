@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">CleartaxEditor</string>
     <string name="enter_text">Enter Text</string>
-    <string name="clear_focus">Clear Focus</string>
+    <string name="lose_focus">Lose Focus</string>
 </resources>

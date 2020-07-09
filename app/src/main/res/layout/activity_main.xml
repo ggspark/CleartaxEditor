@@ -72,7 +72,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:text="@string/clear_focus" />
+                android:text="@string/lose_focus" />
 
         </LinearLayout>
 
